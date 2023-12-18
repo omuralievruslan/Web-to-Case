@@ -8,22 +8,20 @@
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            height: 100vh;
-            background: url('ocean.jpg') no-repeat center center fixed;
-            background-size: cover;
             display: flex;
             justify-content: center;
             align-items: center;
-            overflow: hidden;
+            height: 100vh;
+            background: url(pexels-adrian-dorobantu-2127740.jpg) no-repeat center center fixed;
+            background-size: cover;
         }
 
-        .form-container {
+        form {
             background-color: rgba(255, 255, 255, 0.8);
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             width: 300px;
-            text-align: center;
         }
 
         label {
@@ -52,38 +50,37 @@
         input[type="submit"]:hover {
             background-color: #0056b3;
         }
-
-        .thank-you {
-            display: none;
-            color: #fff;
-            font-size: 24px;
-            margin-top: 20px;
-        }
     </style>
 </head>
 <body>
 
-<div class="form-container">
-    <form action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=00D5h000008tL08" method="POST">
-        <!-- Your form fields go here as before -->
+<form action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=00D5h000008tL08" method="POST">
 
-        <input type="hidden" id="external" name="external" value="1">
+    <input type="hidden" name="orgid" value="00D5h000008tL08">
+    <input type="hidden" name="retURL" value="http://">
 
-        <input type="submit" name="submit" value="Submit">
-    </form>
+    <label for="name">Contact Name</label>
+    <input id="name" maxlength="80" name="name" type="text" required>
 
-    <div class="thank-you" id="thankYouMessage">
-        Thank you for submitting the form!
-    </div>
-</div>
+    <label for="email">Email</label>
+    <input id="email" maxlength="80" name="email" type="email" required>
 
-<script>
-    document.querySelector('form').addEventListener('submit', function() {
-        document.getElementById('thankYouMessage').style.display = 'block';
-        document.querySelector('.form-container form').style.display = 'none';
-    });
-</script>
+    <label for="phone">Phone</label>
+    <input id="phone" maxlength="40" name="phone" type="tel" required>
+
+    <label for="subject">Subject</label>
+    <input id="subject" maxlength="80" name="subject" type="text" required>
+
+    <label for="description">Description</label>
+    <textarea name="description" required></textarea>
+
+    <input type="hidden" id="external" name="external" value="1">
+
+    <input type="submit" name="submit" value="Submit">
+
+</form>
 
 </body>
 </html>
+
 
